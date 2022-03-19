@@ -1,0 +1,77 @@
+body {
+    background-color:#CCFFFF;
+}
+h1 {
+    text-align: center;
+    color: #330066;
+}
+h2 {
+    text-align: center;
+    color:blue;
+}
+h3 {
+    text-align: center;
+    letter-spacing: 5px;
+}
+.thewrap {            
+
+    width:80%;
+    margin:auto;
+    border: 3px;              
+    border-color:blue;
+    border-style: solid;
+    background-color: #FFF;
+
+    padding: 10px 5px 0;                             
+   
+
+}
+footer {
+    clear: both;
+    background-color: #990000;
+    text-align: center;
+    font-size: 65%;
+    font-weight: bold;
+    color: white;
+    height: 30px;
+    margin: auto;
+    padding: 10px;
+    
+
+}
+.student {
+    width: 150px;
+    height: 140px;
+    float:left;
+    margin-right: 20px;
+}
+main p::first-letter {
+    font-size: 2.5em;
+    color:#990000;
+}
+nav {
+list-style-type: none;           
+text-align: center;
+
+
+}
+nav li {
+    display: inline;
+    background-color: #990000;
+    border-radius: 12px;
+    padding: 10px 20px;
+    line-height: 20px;
+    height: 20px;
+    
+
+}
+nav a {
+    display: inline-block;
+    
+    text-decoration: none;
+    color:white;
+    
+    text-align: center;
+    
+
+}
