@@ -55,14 +55,14 @@ h1 { text-align: center; font-style: italic; color: gold; }
   <label for="lastname">Last Name: </label>
     <input type="text" placeholder="Last Name" name="lastname" id="lastname" size="50" maxlength="25">
   <label for="age">Age (must be 18 or over):</label>
-  <input type="number" placeholder="Age (must be 18 or over)" name="age" id="age" size="50" min="18" max="99">
+  <input type="number" placeholder="Age (must be 18 or over)" name="age" id="age" min="18" max="99">
   <label for="email">Email: </label>
   <input type="email" placeholder="email address" required name="email" id="email" size="50"><br>
   <label for="memdate">Date of membership: </label> 
-  <input type="date" placeholder="YYYY-MM-DD" name="memdate" id="memdate" size="50" max="2020-12-31"><br>
+  <input type="date" name="memdate" id="memdate" size="50" max="2020-12-31"><br>
   <label for="rewards">Choose your reward: </label>
   <input type="text" placeholder="reward options" name="rewards" id="rewards" size="50" list="Reward Choices">
-  <datalist id="Reward Choices">
+  <datalist id="RewardChoices">
     <option value="Two-Year Member Magazine Subscription">
     <option value="2 Tickets to Annual Seminar">
     <option value="$100 Food Voucher During Seminar">
