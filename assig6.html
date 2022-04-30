@@ -6,10 +6,28 @@
 <meta name="description" content="working with CSS variables specificity and inheritance">
 <title>CSS Variables Assignment</title>
 <style>
-:root { }
-body { }
-h1 { text-align:center; height: 120px;}
+:root { 
+  --cyan:#00FFFF;
+  --blue:#0000FF;
+  --red:#FF0000;
+  --logo:url(ball.png);
+  --logosm:url(ballsmall.png);
+  --logopos:left top;
+  --logrep:no-repeat;
+  
+  --linkhov:yellow;
+}
+body {background-color: var(--cyan);
+  color: var(--blue);
+
+}
+h1 { text-align:center; height: 120px; background-image: var(--logo);background-position: var(--logopos); background-repeat: var(--logrep);}
 a { text-decoration: none; }
+a:link {color: var(--blue)}
+a:visited {color: var(--red)}
+a:hover{background-color: var(--linkhov)}
+ul {list-style-image: var(--logosm);}
+
 </style>
  <body>
 <h1>ABC Volleyball League</h1>
