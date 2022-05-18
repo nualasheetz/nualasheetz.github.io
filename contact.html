@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Nuala Sheetz Contact Information Form</title>
+        <meta name="description" content="Form to Submit Comments to Nuala Sheetz">
+        <meta property="og:title" content="Nuala Sheetz's Contact Form"> 
+        
+        <meta property="og:description" content="A form to contact Nuala Sheetz and leave a comment">
+        <link rel="stylesheet" href="gridtest.css">
+        <link rel="shortcut icon" href="favicon.ico">
+        
+    
+    <style>
+       h1 { text-align: center; font-style: italic; color: rgb(0, 64, 255); }
+        * {
+          box-sizing: border-box;
+        }
+        
+        form {
+          padding: 1em;
+          background: #f9f9f9;
+          border: 1px solid black;
+          margin-top: 2rem;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 1em;
+        }
+        form input {
+          margin-bottom: 1rem;
+          background: white;
+          border: 1px solid #9c9c9c;
+        }
+        label {
+          text-align: left;
+          display: block;
+          padding: 0.5em 1.5em 0.5em 0;
+        }
+        
+        .myinput {
+          width: 100%;
+          padding: 0.7em;
+          margin-bottom: 0.5rem;
+        }
+        input:focus {
+          background-color: gold;
+        }
+        form div { text-align:center; }
+        input[type="submit"], input[type="reset"] {
+          background: lightgray;
+          padding: 0.7em;
+          border: 0;
+        
+     
+    </style>
+        </head>
+        <body>
+
+        <header class="grid-area grid-area-1"><h1>Contact Nuala Sheetz</h1></header>
+        <p class="grid-area grid-area-2">If you have any questions for me about my FrontEnd Development Skills you can contact me at <a href="mailto:nsheetz@ccsf.edu">nsheetz@ccsf.edu</a> or fill out the form below.</p>
+        <div class="grid-area grid-area-3">
+
+        <form class="form1" action="#" method="post">
+          <label for="fullname">Full Name: </label>
+          <input type="text" placeholder="Full Name" required name="fullname" id="fullname" size="50" maxlength="25">
+          
+          <label for="email">Email: </label>
+          <input type="email" placeholder="email address" required name="email" id="email" size="50"><br>
+         
+        
+          <p><label for="comments">Please type questions or comments here:</label></p>
+          <textarea id="comments" name="comments" rows="10" cols="60">
+
+</textarea>
+        
+        
+        
+                    <div><input type="submit" value="Submit"> &nbsp; <input type="reset" value="Clear"></div>
+                </form>
+            </div>
+        </body>
+        </html>
+        
