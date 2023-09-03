@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Part 2 of homework 2 for the class: JavaScript, Ajax, and JQuery</title>
+        <meta name="description" content="more examples of basic JavaScript by Nuala Sheetz ">
+        <meta property="og:title" content="Nuala Sheetz's part 2 of homework 2 from JavaScript, Ajax, and JQuery City College San Francisco"> 
+        
+        <meta property="og:description" content="more Javascript examples">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+        <style>
+          input {text-align: right;}
+          body {background-color: #f3f5f7;}
+          .body { width: 550px; margin: 0px auto;}
+        </style>
+        
+        
+       
+
+        <script>
+              $(document).ready(function(){
+                $("#fade").click(function(){               
+                  /*playing around with css 
+                  $(this).css({"background-color": "yellow", "font-size": "2rem"});*/
+                  $(".message").fadeOut("slow");});
+                $("#calculate").click(function(){
+                  $(".message").fadeIn("slow");});
+                $("#reset").click(function(){
+                  $(".message").fadeIn("slow");});
+                   // $("p").show();
+            
+          });
+        
+      
+          //for error message when user inputs nothing
+             
+        
+
+          //for error message when user inputs noninteger        
+         
+        
+        //From class example with additional number
+          function process()
+          {
+            //initalize the variables
+          var number1, number2, number3, n1, n2, n3, sum, average, product, minimum, maximum;
+
+        
+     
+         /* original examples 
+         number1 = document.forms["myform"].elements["num1"].value;
+         number2 = document.forms["myform"].elements["num2"].value;
+         number3 = document.forms["myform"].elements["num3"].value;
+         */
+                 
+         //shorter method using id
+
+          number1 = document.getElementById("num1").value;
+          number2 = document.getElementById("num2").value;
+          number3 = document.getElementById("num3").value;
+         
+            
+          /*make sure the input is an integer. 
+          Is this necessary when I've already set the type to number? Yes, because Javasript reads everything as a string.*/
+
+        n1 = parseInt(number1);
+        n2 = parseInt(number2);
+        n3 = parseInt(number3);
+          
+        sum = n1 + n2 + n3; 
+        product = n1 * n2 * n3;
+        average = sum / 3;
+        minimum = Math.min(n1,n2,n3);
+        maximum = Math.max(n1,n2,n3);
+
+
+          /*original example
+          alert("The sum of the numbers is " + sum);
+          */
+
+          //better way to present the result for better user experience for mobile devices is document.forms
+
+         // if (n1 === null) {document.forms["myform"].elements["result"].value = ("Error! Please enter numbers");}
+        //else 
+          if (Number.isInteger(n1) === false || Number.isInteger(n2) === false || Number.isInteger(n3) === false) {document.forms["myform"].elements["result"].value = ("Error! Please enter numbers");}
+
+          else             {
+              document.forms["myform"].elements["result"].value = ("Here is the sum: " + sum + "\n Here is the product: " + product + "\n Here is the average: " + average); }      
+             // document.forms["myform"].elements["result"].value = (<strong style='color:red' 'font-family:TimesNewRoman'"Error! Please enter numbers"</strong);
+            }
+        </script>
+          
+
+        
+
+    </head> 
+    
+    <body>
+        
+
+        <header>
+      <h1>Part 2 of homework 2 for the class: JavaScript, Ajax, and JQuery</h1>  
+        </header>
+        
+
+      
+        <section class="body">
+          <h2>Please type 3 integers in the boxes and then submit.</h2>
+
+        <form name="myform">
+          <table>
+          <tr>
+          <td><label for="num1">First Number:</label></td>
+          <td><input type="text" name="num1" id="num1"  placeholder="Choose an integer"></td>
+          <!--I would use type number here but the assignment specifies that an error message be given if they don't choose a number.-->
+          </tr>
+          <tr>
+          <td><label for="num2">Second Number:</label></td>
+          <td><input type="text" name="num2" id="num2"  placeholder="Choose an integer"></td>
+
+          </tr>
+          <td><label for="num3">Third Number:</label></td>
+          <td><input type="text" name="num3" id="num3"  placeholder="Choose an integer"></td>
+          </tr>
+          
+          </table>
+          <br>
+          <br> Sum, product, and average of the numbers:
+          <textarea class="message" rows="3" cols="40" name="result">Results will appear here.</textarea>
+          <br><br>
+
+          <!--call the function to perform math when the user clicks submit.-->
+          <input type="button" id="calculate" onclick="process()" value="SUBMIT">
+          <input type="reset" id="reset" value="RESET">
+          <!--call the function to fade results when the user clicks.-->
+          <input type="button" id="fade" onclick="()" value="FADE RESULTS">
+          
+            
+           
+          </form>        
+
+        </section>
+        
+
+        <script>
+            
+           
+        
+        </script>
+
+      </br>   </br>   </br>
+       
+    </body>
+
+    <footer>
+        <a href="https://nualasheetz.github.io/hw2.html">Return to Nuala's Homework 2 for the City College Class: Javascript, JQuery, and Ajax</a>
+    </footer>
+    
+</html>
