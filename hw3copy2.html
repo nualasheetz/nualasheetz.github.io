@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="D3 homework">
+<title>D3 Homework</title>
+<style>
+#chart rect{
+  fill: #4aaeea;
+}
+
+#chart text{
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end; 
+}
+
+.axis text{
+  font: 10px sans-serif;
+}
+
+.axis path, .axis line{
+  fill: none;
+  stroke : #fff;
+  shape-rendering: crispEdges;
+}
+
+body{
+  background: #1a1a1a;
+  color : #eaeaea;
+  padding : 10px;
+}
+</style>
+</head>
+<body>
+<div id="chart"></div> 
+</body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<!---->
+
+<script>
+    //set variables for height and width of the SVG container, the chart
+
+    var w = mySVG.attr("width");
+	var h = mySVG.attr("height");
+
+    var widthScale = d3.scale.linear()     //domain([smallest value, largest value])
+        .domain([0, 195])
+        //resulting range should be 
+        .range([o, w]);
+
+    
+
+    var axis = d3.svg.axis()    //make an axis to show the values on the x axis
+        .scale(widthScale);
+
+   d3.json("hw3.json", function (data) {})
+   
+    //var myData = [2, 3, 5]; //The array of data
+    //the largest data point should be the maximum width and the container should fit everything
+
+    var mySVG = d3.select('svg')    //grab an element that may not yet exist from the DOM
+        .append("g")  //put all the bars into a group
+        .attr("width", 500)
+        .attr("height", 500)
+    
+      
+
+    mySVG.selectAll("rect")   //make rectangles for bars
+        .data(data)    //get the data
+    //bind the data to the rectangles even though they don't exist yet 
+        .enter()     //loop through the data 
+            .append("rect")
+    //for each data point it will look at the domain and make a new range to fit
+            //.attr("width", d => widthScale(d))
+            .attr("width", function (d) {return d.students * 10}) //reference the students property in our json file
+    //separate the bars 
+    //.attr("height", barHeight - 4)
+    //y coordinate is a function of the index
+            .attr("height", 40)
+            .attr("fill", function (d) {return color(d);})    //vary the color of the bars
+            .attr("y", (d, i) => i * 50)    // d is the data and i is the index
+    //translate has the values of the starting x and starting y points
+    //for each index multiply by the barHeight to separate the bars one below the other
+        .attr('transform', (d, i) => "translate(100, " + i * barHeight + " )")
+
+        mySVG.selectAll("text") //add text to each bar
+            .data(data)
+            .enter()
+                .append("text")
+                .attr("fill", "white")
+                .attr("y", (d, i) => i * 50 + 25) //in almost same position as bar
+                .text(function (d) {return d.term;})
+                            
+    mySVG.append("g") //place the axis
+        .attr("transform", "translate(0, 400)")
+        .call(axis);
+
+
+</script>
