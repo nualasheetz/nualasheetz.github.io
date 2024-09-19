@@ -42,8 +42,8 @@ body{
     
     //set variables for height and width of the SVG container, the chart
 
-    var w = mySVG.attr("width");
-	var h = mySVG.attr("height");
+    var w = canvas.attr("width");
+	var h = canvas.attr("height");
 
     var widthScale = d3.scale.linear()     //domain([smallest value, largest value])
         .domain([0, 195])
