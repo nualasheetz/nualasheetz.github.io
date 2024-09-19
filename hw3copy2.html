@@ -59,6 +59,8 @@ body{
     //var myData = [2, 3, 5]; //The array of data
     //the largest data point should be the maximum width and the container should fit everything
 
+    d3.select("#chart")
+        .append("mySVG");
     var mySVG = d3.select('svg')    //grab an element that may not yet exist from the DOM
         .append("g")  //put all the bars into a group
         .attr("width", 500)
