@@ -73,7 +73,7 @@ body{
     .call(d3.axisBottom(x));
 
    d3.json("hw3data.json")
-        .then( function (data) {  //.then somehow deals with errors? something to do with promises?
+        .then(function(data) {  //.then - something to do with promises?
         x.domain(data.map(function(d) { return d.term; }));
 		y.domain([0, d3.max(data, function(d) { return d.students; })]);
 		   
