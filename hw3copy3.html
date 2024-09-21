@@ -72,7 +72,8 @@ body{
     .attr("transform", "translate(" + 100 + "," + 100 + ")")
     .call(d3.axisBottom(x));
 
-   d3.json("hw3data.json").then( function (data) {  //.then somehow deals with errors?
+   d3.json("hw3data.json")
+        .then( function (data) {  //.then somehow deals with errors? something to do with promises?
         x.domain(data.map(function(d) { return d.term; }));
 		y.domain([0, d3.max(data, function(d) { return d.students; })]);
 		   
@@ -117,7 +118,7 @@ body{
 		   .attr("y", function(d) { return y(d.population); })
 		   .attr("width", x.bandwidth()).transition().ease(d3.easeLinear).duration(200).delay(function(d, i) { return i * 25; })
 		   .attr("height", function(d) { return h - y(d.population); });
-		 }); 
+        });  // end of d3.json
 
          function onMouseOver(d, i) { //what to do when the mosuse is moved
 		    d3.select(this)
