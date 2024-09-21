@@ -54,7 +54,11 @@ body{
 	var h = mySvg.attr("height") - margin;
     var margin = 100;
     var x = d3.scaleBand().range([0, w]).padding(0.4);
+    console.log(x);
+    console.log(y);
 	var y = d3.scaleLinear().range([h, 0]);
+    console.log(w);
+    console.log(h);
 
     mySvg.append('text') //title
         .attr('transform', 'translate(100, 0)') //position it
