@@ -47,8 +47,8 @@ body{
     var mySvg = d3.select("#chart").append("svg")
       //grab an element that may not yet exist from the DOM
       .append("g")  //put all the bars into a group
-      //.attr("width", 500)
-      //.attr("height", 500);
+      .attr("width", 500)
+      .attr("height", 500);
 
   var w = mySvg.attr("width") - margin;
 	var h = mySvg.attr("height") - margin;
