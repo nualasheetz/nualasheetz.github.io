@@ -65,8 +65,8 @@ body{
     */
     mySvg.append("g") //make group to hold all svg pieces
     //place the axis
-      .attr("transform", "translate(0, " + h +")")
-      .call(d3.axisBottom(x));
+    .attr("transform", "translate(" + 100 + "," + 100 + ")")
+    .call(d3.axisBottom(x));
 
    d3.json("hw3.json", function (data) {  
     
