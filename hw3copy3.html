@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="description" content="D3 homework">
 <title>D3 Homework</title>
- <script src="https://d3js.org/d3.v5.min.js"></script> 
-          <!--      <script src="d3.min.js"></script>-->
+<!--      <script src="https://d3js.org/d3.v5.min.js"></script> -->
+           <script src="d3.min.js"></script>
 
 
 <style>
@@ -72,7 +72,7 @@ body{
     .attr("transform", "translate(" + 100 + "," + 100 + ")")
     .call(d3.axisBottom(x));
 
-   d3.json("hw3data.json", function (data) {  
+   d3.json("hw3data.json").then( function (data) {  //.then somehow deals with errors?
         x.domain(data.map(function(d) { return d.term; }));
 		y.domain([0, d3.max(data, function(d) { return d.students; })]);
 		   
