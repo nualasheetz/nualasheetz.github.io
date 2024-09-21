@@ -69,7 +69,7 @@ body{
     
     var g = mySvg.append("g") //make group to hold all svg pieces
     //place the axis
-    .attr("transform", "translate(" + 100 + "," + 100 + ")")
+    .attr("transform", "translate(" + 150 + "," + 150 + ")")
     .call(d3.axisBottom(x));
 
    d3.json("hw3data.json")
@@ -78,10 +78,10 @@ body{
 		y.domain([0, d3.max(data, function(d) { return d.students; })]);
 		   
     
-      //make rectangles for bars
+      
       g.append('g')
         .attr('transfor', 'translate(0, ' + h + ')')
-        .call(d3.axisBottom(x)) //add information to the bottom axis
+        .call(d3.axisBottom(x)) //add information to the bottom axis - the terms
         .append('text')
         .attr('y', h - 250)
         .attr('x', w - 100)
@@ -93,7 +93,7 @@ body{
 
         g.append("g")
 		   .append("text")
-		   .attr("transform", "rotate(-90)")
+		   .attr("transform", "rotate(-90)") //rotate to change bars from horizontal to vertical?
 		   .attr("y", 5)
 		   .attr("x", -100)
 		   .attr("dy", "-2em")
@@ -105,19 +105,19 @@ body{
         
         g.append("g")
 		   .attr("transform", "translate(0, 0)")
-		   .call(d3.axisLeft(y)) //add information the left axis
+		   .call(d3.axisLeft(y)) //add information the left axis - the number of students
         
            g.selectAll(".bar") //select a not yet existing class bar
 		   .data(data)
 		   .enter()
-		   .append("rect")
+		   .append("rect") //make rectangles for bars
 		   .attr("class", "bar") // add class bar
 		   .on("mouseover", onMouseOver) //call function to do something when the mouse is moved over the area
 		   .on("mouseout", onMouseOut)
-		   .attr("x", function(d) { return x(d.year); })
-		   .attr("y", function(d) { return y(d.population); })
+		   .attr("x", function(d) { return x(d.term); }) 
+		   .attr("y", function(d) { return y(d.students); })
 		   .attr("width", x.bandwidth()).transition().ease(d3.easeLinear).duration(200).delay(function(d, i) { return i * 25; })
-		   .attr("height", function(d) { return h - y(d.population); });
+		   .attr("height", function(d) { return h - y(d.students); });
         });  // end of d3.json
 
          function onMouseOver(d, i) { //what to do when the mosuse is moved
@@ -126,7 +126,7 @@ body{
             d3.select(this)
 			   .transition()
 			   .duration(200)
-			   .attr('width', x.bandwidth() + 5)
+			   .attr('width', x.bandwidth() + 5) // width of x band - the terms (should be 6) 6 + 5 = 11
 			   .attr("y", function(d) { return y(d.students) - 10; })
 			   .attr("height", function(d) { return h - y(d.students) + 10; });
 
@@ -139,7 +139,7 @@ body{
 			   d3.select(this)
 			      .transition()
 				  .duration(200)
-				  .attr('width', x.bandwidth())
+				  .attr('width', x.bandwidth()) //number of terms = 6
 				  .attr("y", function(d) { return y(d.students); })
 				  .attr("height", function(d) {return h - y(d.students); });
 				  
