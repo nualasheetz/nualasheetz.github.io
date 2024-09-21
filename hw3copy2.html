@@ -41,6 +41,11 @@ body{
 <script>
     
     //set variables for height and width of the SVG container, the chart
+    var mySvg = d3.select("#chart").append("svg")
+      //grab an element that may not yet exist from the DOM
+      .append("g")  //put all the bars into a group
+      //.attr("width", 500)
+      //.attr("height", 500);
 
   var w = mySvg.attr("width") - margin;
 	var h = mySvg.attr("height") - margin;
@@ -62,11 +67,7 @@ body{
    d3.json("hw3.json", function (data) {
     
     
-   var mySvg = d3.select("#chart").append("svg")
-      //grab an element that may not yet exist from the DOM
-      .append("g")  //put all the bars into a group
-      .attr("width", 500)
-      .attr("height", 500);
+   
     
       
 
