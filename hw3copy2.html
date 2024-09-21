@@ -35,7 +35,7 @@ body{
 <body>
 <div id="chart"></div> 
 </body>
-<script src="https://d3js.org/d3.v4.min.js"></script>
+      <script src="https://d3js.org/d3.v7.min.js"></script>
 <!---->
 
 <script>
@@ -51,11 +51,13 @@ body{
 	var h = mySvg.attr("height") - margin;
   var margin = 200;
 
-  var widthScale = d3.scale.linear()     //domain([smallest value, largest value])
+   /*var widthScale = d3.scale.linear()     //domain([smallest value, largest value])
         .domain([0, 195])
         //resulting range should be 
         .range([o, w]);
+       
 
+    */
    var axis = d3.svg.axis()    //make an axis to show the values on the x axis
         .scale(widthScale);
 
