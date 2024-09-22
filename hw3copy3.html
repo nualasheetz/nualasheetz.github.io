@@ -37,17 +37,16 @@ body{
 </style>
 </head>
 <body>
-<div id="chart"></div> 
+<div width="600" height="600" id="chart"></div> 
 
-<svg width="500" height="500"></svg>
 <script>
     
     //set variables for height and width of the SVG container, the chart
     var svg = d3.select("#chart").append("svg")
       //grab an element that may not yet exist from the DOM
       .append("g")  //put all the bars into a group
-      .attr("width", 300)
-      .attr("height", 300);
+      .attr("width", 500)
+      .attr("height", 500);
 
     var w = svg.attr("width") - margin;
 	var h = svg.attr("height") - margin;
