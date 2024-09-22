@@ -81,7 +81,7 @@ body{
 
 g.append('g')
         .attr('transform', 'translate(0, ' + height + ')')
-        .call(d3.axisBottom(x)) //add information to the bottom axis - the terms
+        .call(d3.axisBottom(xScale)) //add information to the bottom axis - the terms
         .append('text')
         .attr('y', height - 250)
         .attr('x', width - 100)
