@@ -40,7 +40,8 @@ body{
 <div id="chart"></div> 
 <svg width="600" height="500"></svg>
 <script>
-  var svg = d3.select('svg'),
+  var chart = d3.select('#chart').append('svg');
+var svg = d3.select('svg),
   margin = 200,
   width = svg.attr('width') - margin,
   height = svg.attr('height') - margin;
