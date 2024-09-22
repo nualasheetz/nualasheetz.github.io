@@ -63,7 +63,7 @@ body{
 
     g.append('g')
     .call(d3.axisLeft(yScale)
-    }).ticks(10));
+    .ticks(10));
     
     g.selectAll(".bar")
          .data(data)
