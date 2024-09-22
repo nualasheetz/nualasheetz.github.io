@@ -54,9 +54,8 @@ body{
     .then(function(data) {
 
     xScale.domain(data.map(function(d) { return d.term; }));
-yScale.domain(data.map(function(d) {return d.students;}));
-
-    //yScale.domain([0, d3.max(data, function(d) {return d.students;})]);
+    yScale.domain([0, d3.max(data, function(d) { return d.students; })]); 
+	    console.log(yScale);
 
     g.append('g')
     .attr('transform', 'translate(0,' + height + ')')
