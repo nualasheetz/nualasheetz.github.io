@@ -43,9 +43,9 @@ body{
 <script>
 var svg = d3.select('#chart')
     .append('svg');
-var margin = 200;
+var margin = 100;
 var width = svg.attr('width') - margin;
-var height = svg.attr('height') - margin;
+var height = svg.attr('height') - margin; // height needs to be larger than 100 in order to avoid negative value
 
 
 
@@ -76,7 +76,7 @@ var height = svg.attr('height') - margin;
          .attr("x", function(d) { return xScale(d.term); })
          .attr("y", function(d) { return yScale(d.students); })
          .attr("width", xScale.bandwidth())
-         .attr("height", function(d) { return height - yScale(d.students); });
+         .attr("height", function(d) { return height - yScale(d.students); }); //highest student number is 195, so height must be larger than 195 to avoid negative value
     });
   
 
