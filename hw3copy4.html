@@ -60,9 +60,7 @@ body{
     .attr('transform', 'translate(0,' + height + ')')
     .call(d3.axisBottom(xScale));
 
-    g.append('g')
-    .call(d3.axisLeft(yScale)
-    .ticks(10));
+    
 
     g.selectAll(".bar")
          .data(data)
@@ -82,11 +80,11 @@ body{
     
 
 g.append('g')
-        .attr('transform', 'translate(0, ' + h + ')')
+        .attr('transform', 'translate(0, ' + height + ')')
         .call(d3.axisBottom(x)) //add information to the bottom axis - the terms
         .append('text')
-        .attr('y', h - 250)
-        .attr('x', w - 100)
+        .attr('y', height - 250)
+        .attr('x', width - 100)
         .classed('axis', true)
            .text("term");
 
