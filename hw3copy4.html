@@ -51,7 +51,7 @@ body{
   var g = svg.append('g')
     .attr('transform', 'translate(' + 100 + ', ' + 100 + ')');
 
-    d3.js("hw3data.json")
+    d3.json("hw3data.json")
     .then(function(data) {
 
     xScale.domain(data.map(function(d) { return d.term; }));
