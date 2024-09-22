@@ -93,6 +93,7 @@ g.append('g')
  g.append("g")
            .attr('transform', 'translate(0, ' + width + ')')
            .call(d3.axisLeft(yScale)) //add information to the left axis - the students
+	 .ticks(6)
            .append('text')
           
            .classed('axis', true)
