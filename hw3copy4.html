@@ -45,7 +45,8 @@ body{
   height = svg.attr('height') - margin;
 
   var xScale = d3.scaleBand().range([0, width]).padding(0.4),
-      yScale = d3.scaleLinear().range ([height, 0]);
+      yScale = d3.scaleLinear().range ([height, 0])
+	  	 .ticks(6);
 
   var g = svg.append('g')
     .attr('transform', 'translate(' + 100 + ', ' + 100 + ')');
@@ -93,7 +94,6 @@ g.append('g')
  g.append("g")
            .attr('transform', 'translate(0, ' + width + ')')
            .call(d3.axisLeft(yScale)) //add information to the left axis - the students
-	 .ticks(6)
            .append('text')
           
            .classed('axis', true)
