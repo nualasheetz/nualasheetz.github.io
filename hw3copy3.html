@@ -44,9 +44,10 @@ body{
     //set variables for height and width of the SVG container, the chart
     var svg = d3.select("#chart").append("svg")
       //grab an element that may not yet exist from the DOM
-      .append("g")  //put all the bars into a group
-      .attr("width", 500)
-      .attr("height", 500);
+      .attr("width", 500) //set the width of the svg
+      .attr("height", 500)
+      .append("g"); //put all the bars into a group
+      
 
     var w = svg.attr("width") - margin;
 	var h = svg.attr("height") - margin;
@@ -71,7 +72,7 @@ body{
     
     var g = svg.append("g") //make group to hold all svg pieces
     //place the axis
-    .attr("transform", "translate(" + 150 + "," + 150 + ")")
+    .attr("transform", "translate(" + 150 + "," + 150 + ")") //move 150 pixels to the right and 150 down
     .call(d3.axisBottom(x));
 
    d3.json("hw3data.json")
