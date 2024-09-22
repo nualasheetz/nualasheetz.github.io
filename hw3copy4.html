@@ -98,6 +98,15 @@ g.append('g')
  .attr("stroke", "white")
  .text("Students");
 
+ g.append("g")
+           .attr('transform', 'translate(0, ' + width + ')')
+           .call(d3.axisLeft(yScale)) //add information to the left axis - the students
+           .append('text')
+           .attr('y', height - 250)
+           .attr('x', width - 100)
+           .classed('axis', true)
+	.text("students");              
+
     });
   
 
