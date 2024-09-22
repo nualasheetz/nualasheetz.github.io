@@ -55,7 +55,7 @@ body{
     .then(function(data) {
 
     xScale.domain(data.map(function(d) { return d.term; }));
-    yScale.domain([0, d3.max(data, function(d) {return d.value;})]);
+    yScale.domain([0, d3.max(data, function(d) {return d.students;})]);
 
     g.append('g')
     .attr('transform', 'translate(0,' + height + ')')
@@ -70,10 +70,10 @@ body{
          .data(data)
          .enter().append("rect")
          .attr("class", "bar")
-         .attr("x", function(d) { return xScale(d.year); })
-         .attr("y", function(d) { return yScale(d.value); })
+         .attr("x", function(d) { return xScale(d.term); })
+         .attr("y", function(d) { return yScale(d.students); })
          .attr("width", xScale.bandwidth())
-         .attr("height", function(d) { return height - yScale(d.value); });
+         .attr("height", function(d) { return height - yScale(d.students); });
     });
   
 
