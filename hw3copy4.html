@@ -74,7 +74,7 @@ body{
          .attr("height", function(d) { return height - yScale(d.students); });
         
     svg.append('text')
-      .attr('x', 50)
+      .attr('x', 150)
       .attr('y', 50)
       .attr('font-size', '1.5em')
       .text('Student Enrollment Trends');
@@ -91,9 +91,6 @@ body{
 
     g.append("g")
  .call(d3.axisLeft(yScale)
- .tickFormat(function(d){
-     return "$" + d;
- }).ticks(10))
  .append("text")
  .attr("transform", "rotate(-90)")
  .attr("y", 6)
