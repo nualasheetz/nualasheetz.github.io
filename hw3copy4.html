@@ -55,7 +55,7 @@ body{
     .then(function(data) {
 
     xScale.domain(data.map(function(d) { return d.term; }));
-	y.domain([0, d3.max(data, function(d) { return d.population; })]);
+	y.domain([0, d3.max(data, function(d) { return d.students; })]);
 
     g.append('g')
     .attr('transform', 'translate(0,' + height + ')')
