@@ -75,7 +75,9 @@ body{
          .data(data)
          .enter().append("rect")
          .attr("class", "bar")
-          
+          on("mouseover", mouseover)
+    .on("mousemove", mousemove)
+    .on("mouseleave", mouseleave)
          .attr("x", function(d) { return xScale(d.term); })
          .attr("y", function(d) { return yScale(d.students); })
          .attr("width", xScale.bandwidth()).transition().ease(d3.easeLinear).duration(200).delay(function(d, i) { return i * 25; })
