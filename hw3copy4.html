@@ -81,52 +81,7 @@ body{
            .attr("width", xScale.bandwidth())
          .attr("height", function(d) { return height - yScale(d.students); });
 
-// We wrap the SVG with a container that has the html element above it
-  const container = html`<div>
-  <style>.tooltip {
-    font: sans-serif 12pt;
-    background: #eeeeeeee;
-    pointer-events: none;
-    border-radius: 2px;
-    padding: 5px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
 
-  }</style>
-<div class="tooltip"></div>
-  ${svg.node()}
-
-  </div>`
-
-   // A selection for the tooltip
-  const tooltip = d3.select(container).select(".tooltip");
-
-  gPoints
-    .selectAll("circle")
-    .data(data)
-    .join("circle")
-    .attr("cx", (d) => x(d[xAttr]))
-    .attr("cy", (d) => y(d[yAttr]))
-    .attr("fill", "steelblue")
-    .attr("r", 3)
-    // Change the contents and position of the tooltip
-    .on("mouseenter", (evt, d) => {
-      const [mx, my] = d3.pointer(evt);
-      const tooltipText = `
-        <strong>${xAttr}</strong>: ${d[xAttr]} 
-        <br> 
-        <strong>${yAttr}</strong>: ${d[yAttr]}`;
-      tooltip
-        .style("top", `${my}px`)
-        .style("left", `${mx}px`)
-        .html(tooltipText);
-    })
-    .on("mouseout", () => tooltip.text());
-
-  return container;
-})
  
     g.append("g")
       .attr("transform", "translate(0," + height + ")")
