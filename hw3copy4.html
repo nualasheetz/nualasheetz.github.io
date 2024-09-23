@@ -75,7 +75,7 @@ body{
          .data(data)
          .enter().append("rect")
          .attr("class", "bar")
-          on("mouseover", mouseover)
+          .on("mouseover", mouseover)
     .on("mousemove", mousemove)
     .on("mouseleave", mouseleave)
          .attr("x", function(d) { return xScale(d.term); })
