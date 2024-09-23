@@ -75,11 +75,34 @@ body{
          .data(data)
          .enter().append("rect")
          .attr("class", "bar")
-         
+         .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
+        .on("mouseover", mouseover);
          .attr("x", function(d) { return xScale(d.term); })
          .attr("y", function(d) { return yScale(d.students); })
            .attr("width", xScale.bandwidth())
          .attr("height", function(d) { return height - yScale(d.students); });
+
+var tooltip = d3.select('.tooltip-area')
+        .style('opacity', 0);
+
+      const mouseover = (event, d) => {
+        tooltip.style("opacity", 1);
+      };
+
+      const mouseleave = (event, d) => {
+        // tooltip.style('opacity', 0);
+      }
+
+      const mousemove = (event, d) => {
+        const text = d3.select('.tooltip-area__text');
+        text.text(`Students ${d.students} in ${d.term}`);
+        const [x, y] = d3.pointer(event);
+
+        tooltip
+          .attr('transform', `translate(${x}, ${y})`);
+      };
+
 
 
  
