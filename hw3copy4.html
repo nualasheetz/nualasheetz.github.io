@@ -70,20 +70,6 @@ body{
       .attr('font-size', '1.5em')
       .text('Student Enrollment Trends');
 
-
-    g.selectAll(".bar")
-         .data(data)
-         .enter().append("rect")
-           .attr("class", "bar")
-           .on("mousemove", mousemove)
-           .on("mouseleave", mouseleave)
-           .on("mouseover", mouseover)
-           .attr("x", function(d) { return xScale(d.term); })
-           .attr("y", function(d) { return yScale(d.students); })
-          .attr("width", xScale.bandwidth())
-           .attr("height", function(d) { return height - yScale(d.students); });
-           
-
 var tooltip = d3.select('.tooltip-area')
         .style('opacity', 0);
 
@@ -103,10 +89,19 @@ var tooltip = d3.select('.tooltip-area')
         tooltip
           .attr('transform', `translate(${x}, ${y})`);
       };
-
-
-
- 
+               
+    g.selectAll(".bar")
+         .data(data)
+         .enter().append("rect")
+           .attr("class", "bar")
+           .on("mousemove", mousemove)
+           .on("mouseleave", mouseleave)
+           .on("mouseover", mouseover)
+           .attr("x", function(d) { return xScale(d.term); })
+           .attr("y", function(d) { return yScale(d.students); })
+          .attr("width", xScale.bandwidth())
+           .attr("height", function(d) { return height - yScale(d.students); });
+           
     g.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale))
