@@ -68,37 +68,27 @@ body{
          .data(data)
          .enter().append("rect")
          .attr("class", "bar")
-           .on("mouseout", onMouseOut)
-           .on("mouseover", onMouseOver) //call function to do something when the mouse is moved over the area
+          
          .attr("x", function(d) { return xScale(d.term); })
          .attr("y", function(d) { return yScale(d.students); })
          .attr("width", xScale.bandwidth()).transition().ease(d3.easeLinear).duration(200).delay(function(d, i) { return i * 25; })
          .attr("height", function(d) { return height - yScale(d.students); });
 
-function onMouseOver(d, i) { //what to do when the mosuse is moved
-            d3.select(this)
-	.attr('class', 'over');
-            d3.select(this)
-	           .transition()
-		.duration(200)
-		.attr('width', xScale.bandwidth() + 5) // width of x band - the terms (should be 6) 6 + 5 = 11
-		.attr("y", function(d) { return yScale(d.students) - 10; })
-		.attr("height", function(d) { return height - yScale(d.students) + 10; });
+	    .on('mouseover', function(d) {
+      tooltip.transition()
+	    .style('opacity', .8)
+	  tooltip.html(d)
+	    .style('left', (d3.event.pageX - 35) + 'px') //pageY: This property of the event object provides the y-coordinate of the mouse pointer.
+		.style('top', (d3.event.pageY - 30) + 'px')
+      d3.select(this)
+	    .style('opacity', .4)
+	})
+	.on('mouseout', function(d) {
+	  d3.select(this)
+	    .style('opacity', 1)
+	});
 
-		   }  // end of function onMouseOver
 
- function onMouseOut(d, i) {
-	d3.select(this)
-	.attr('class', 'bar');
-		  
-	 d3.select(this)
-	    .transition()
-	.duration(200)
-	.attr('width', xScale.bandwidth()) //number of terms = 6
-	.attr("y", function(d) { return yScale(d.students); })
-	.attr("height", function(d) {return height - yScale(d.students); });
-				  
-				}  // end of onMouseOut
         
     svg.append('text')
       .attr('x', 150)
