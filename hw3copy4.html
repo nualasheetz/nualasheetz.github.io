@@ -83,7 +83,7 @@ body{
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale))
     .append("text")
-    
+    .attr("text-anchor", "end")
     .text("Term");
 
     g.append("g")
