@@ -83,7 +83,7 @@ function onMouseOver(d, i) { //what to do when the mosuse is moved
 		.duration(200)
 		.attr('width', xScale.bandwidth() + 5) // width of x band - the terms (should be 6) 6 + 5 = 11
 		.attr("y", function(d) { return y(d.students) - 10; })
-		.attr("height", function(d) { return height - y(d.students) + 10; });
+		.attr("height", function(d) { return height - yScale(d.students) + 10; });
 
 		   }  // end of function onMouseOver
 
@@ -95,8 +95,8 @@ function onMouseOver(d, i) { //what to do when the mosuse is moved
 	    .transition()
 	.duration(200)
 	.attr('width', xScale.bandwidth()) //number of terms = 6
-	.attr("y", function(d) { return y(d.students); })
-	.attr("height", function(d) {return h - y(d.students); });
+	.attr("y", function(d) { return yScale(d.students); })
+	.attr("height", function(d) {return h - yScale(d.students); });
 				  
 				}  // end of onMouseOut
         
