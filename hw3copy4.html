@@ -64,6 +64,13 @@ body{
     .call(d3.axisLeft(yScale)
     .ticks(10));
 
+ svg.append('text')
+      .attr('x', 150)
+      .attr('y', 50)
+      .attr('font-size', '1.5em')
+      .text('Student Enrollment Trends');
+
+
     g.selectAll(".bar")
          .data(data)
          .enter().append("rect")
@@ -74,28 +81,40 @@ body{
          .attr("width", xScale.bandwidth()).transition().ease(d3.easeLinear).duration(200).delay(function(d, i) { return i * 25; })
          .attr("height", function(d) { return height - yScale(d.students); });
 
-	    .on('mouseover', function(d) {
-      tooltip.transition()
-	    .style('opacity', .8)
-	  tooltip.html(d)
-	    .style('left', (d3.event.pageX - 35) + 'px') //pageY: This property of the event object provides the y-coordinate of the mouse pointer.
-		.style('top', (d3.event.pageY - 30) + 'px')
-      d3.select(this)
-	    .style('opacity', .4)
-	})
-	.on('mouseout', function(d) {
-	  d3.select(this)
-	    .style('opacity', 1)
-	});
 
+     // create a tooltip
+  var Tooltip = d3.select("#chart")
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "2px")
+    .style("border-radius", "5px")
+    .style("padding", "5px")
 
-        
-    svg.append('text')
-      .attr('x', 150)
-      .attr('y', 50)
-      .attr('font-size', '1.5em')
-      .text('Student Enrollment Trends');
-
+  // Three functions that change the tooltip when user hover / move / leave a cell
+  var mouseover = function(d) {
+    Tooltip
+      .style("opacity", 1)
+    d3.select(this)
+      .style("stroke", "black")
+      .style("opacity", 1)
+  }
+  var mousemove = function(d) {
+    Tooltip
+      .html(d.students)
+      .style("left", (d3.mouse(this)[0]+70) + "px")
+      .style("top", (d3.mouse(this)[1]) + "px")
+  }
+  var mouseleave = function(d) {
+    Tooltip
+      .style("opacity", 0)
+    d3.select(this)
+      .style("stroke", "none")
+      .style("opacity", 0.8)
+  }    
+ 
     g.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale))
