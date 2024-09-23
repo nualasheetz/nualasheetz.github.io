@@ -77,7 +77,7 @@ body{
          .attr("class", "bar")
          .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)
-        .on("mouseover", mouseover);
+        .on("mouseover", mouseover)
          .attr("x", function(d) { return xScale(d.term); })
          .attr("y", function(d) { return yScale(d.students); })
            .attr("width", xScale.bandwidth())
