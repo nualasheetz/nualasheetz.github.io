@@ -84,6 +84,8 @@ body{
       .call(d3.axisBottom(xScale))
            .append("text")
            .attr("y", height - 250)
+           .attr("text-anchor", "end")
+
     .attr("x", width - 100)    .text("Term");
 
     g.append("g")
